@@ -7,7 +7,7 @@ import {
 } from "../../services/api";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
-import MovieList from "../lists/MovieList";
+import ShowList from "../lists/ShowList";
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -78,7 +78,7 @@ const Movies = () => {
             <Select.Item label="upcoming" value="u" />
           </Select>
         </Box>
-        {isLoading ? <Loading /> : <MovieList movies={moviesList} />}
+        {isLoading ? <Loading /> : <ShowList movies={moviesList} />}
         <Button onPress={updateMoviesList}>Butt</Button>
       </Center>
     </Container>

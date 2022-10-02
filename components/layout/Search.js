@@ -11,7 +11,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useState } from "react";
 import Loading from "../Loading";
-import MovieList from "../lists/MovieList";
+import ShowList from "../lists/ShowList";
 import { searchMovie, searchMulti, searchTV } from "../../services/api";
 
 const Search = () => {
@@ -94,7 +94,7 @@ const Search = () => {
           </FormControl.ErrorMessage>
         </FormControl>
       </Box>
-      {isLoading ? <Loading /> : <MovieList movies={moviesList} />}
+      {isLoading ? <Loading /> : <ShowList movies={moviesList} />}
     </>
   );
 };
