@@ -35,13 +35,9 @@ function TVScreen() {
 const Main = (props) => {
   return (
     <Tab.Navigator>
-      <Tab.Screen
-        name="Movies"
-        component={MoviesScreen}
-        /* movies={props.movies} */
-      />
-      <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="TV" component={TVScreen} />
+      <Tab.Screen name="Movies" component={MoviesScreen} />
+      <Tab.Screen name="Search Results" component={SearchScreen} />
+      <Tab.Screen name="TV Shows" component={TVScreen} />
     </Tab.Navigator>
   );
 };

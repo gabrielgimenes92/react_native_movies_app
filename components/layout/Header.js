@@ -12,7 +12,7 @@ const Header = () => (
         justifyContent="center"
       >
         <Text color="#fff" fontSize={20} fontWeight="Bold">
-          Movies Ap
+          Movies App
         </Text>
       </VStack>
     </Box>
