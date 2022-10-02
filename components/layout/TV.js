@@ -57,7 +57,7 @@ const TV = () => {
   }, [service]);
 
   return (
-    <Container>
+    <Container maxWidth="90%">
       <Center>
         <Box maxW="300" py={6}>
           <Select

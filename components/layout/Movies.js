@@ -1,4 +1,12 @@
-import { Button, Container, Center, Select, Box, CheckIcon } from "native-base";
+import {
+  Button,
+  Container,
+  Center,
+  Select,
+  Box,
+  CheckIcon,
+  VStack,
+} from "native-base";
 import {
   getMoviesNowPlaying,
   getMoviesPopular,
@@ -57,7 +65,7 @@ const Movies = () => {
   }, [service]);
 
   return (
-    <Container>
+    <Container centerContent px={3}>
       <Center>
         <Box maxW="300" py={6}>
           <Select

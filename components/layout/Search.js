@@ -47,55 +47,59 @@ const Search = () => {
   };
 
   return (
-    <>
-      <Box alignItems="center">
-        <FormControl isRequired>
-          <FormControl.Label pb={1}>
-            Search Movie/TV Show Name
-          </FormControl.Label>
-          <Input
-            InputLeftElement={
-              <Icon
-                as={<Entypo name="magnifying-glass" size={24} color="black" />}
-                size={5}
-                ml="2"
-                color="muted.400"
-              />
-            }
-            onChangeText={(value) => {
-              handleSetSearch(value);
-            }}
-            placeholder="i.e. James Bond, CSI"
-            w="80%"
-          />
-          <HStack pt={3} width="95%">
-            <Select
-              selectedValue={service}
-              minWidth="200"
-              accessibilityLabel="Choose category"
-              placeholder="Choose category"
-              _selectedItem={{
-                bg: "teal.600",
-                endIcon: <CheckIcon size="5" />,
+    <Container width="90%">
+      <Center>
+        <Box alignItems="center">
+          <FormControl isRequired>
+            <FormControl.Label pb={1}>
+              Search Movie/TV Show Name
+            </FormControl.Label>
+            <Input
+              InputLeftElement={
+                <Icon
+                  as={
+                    <Entypo name="magnifying-glass" size={24} color="black" />
+                  }
+                  size={5}
+                  ml="2"
+                  color="muted.400"
+                />
+              }
+              onChangeText={(value) => {
+                handleSetSearch(value);
               }}
-              mt={1}
-              onValueChange={(itemValue) => setService(itemValue)}
-            >
-              <Select.Item label="movie" value="mo" />
-              <Select.Item label="multi" value="mu" />
-              <Select.Item label="tv" value="tv" />
-            </Select>
-            <Button ml={3} width="30%" onPress={onSubmit}>
-              Search
-            </Button>
-          </HStack>
-          <FormControl.ErrorMessage>
-            Movie/TV show name is required
-          </FormControl.ErrorMessage>
-        </FormControl>
-      </Box>
-      {isLoading ? <Loading /> : <ShowList movies={moviesList} />}
-    </>
+              placeholder="i.e. James Bond, CSI"
+              w="80%"
+            />
+            <HStack pt={3} width="95%">
+              <Select
+                selectedValue={service}
+                minWidth="200"
+                accessibilityLabel="Choose category"
+                placeholder="Choose category"
+                _selectedItem={{
+                  bg: "teal.600",
+                  endIcon: <CheckIcon size="5" />,
+                }}
+                mt={1}
+                onValueChange={(itemValue) => setService(itemValue)}
+              >
+                <Select.Item label="movie" value="mo" />
+                <Select.Item label="multi" value="mu" />
+                <Select.Item label="tv" value="tv" />
+              </Select>
+              <Button ml={3} width="30%" onPress={onSubmit}>
+                Search
+              </Button>
+            </HStack>
+            <FormControl.ErrorMessage>
+              Movie/TV show name is required
+            </FormControl.ErrorMessage>
+          </FormControl>
+        </Box>
+        {isLoading ? <Loading /> : <ShowList movies={moviesList} />}
+      </Center>
+    </Container>
   );
 };
 

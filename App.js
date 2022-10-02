@@ -11,7 +11,6 @@ export default function App() {
       <NativeBaseProvider>
         <Header />
         <Main />
-        <StatusBar style="auto" />
       </NativeBaseProvider>
     </NavigationContainer>
   );

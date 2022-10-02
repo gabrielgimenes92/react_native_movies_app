@@ -6,6 +6,7 @@ const ShowList = (props) => {
 
   return (
     <FlatList
+      width="100%"
       data={movies}
       renderItem={({ item }) =>
         item.original_title ? (
