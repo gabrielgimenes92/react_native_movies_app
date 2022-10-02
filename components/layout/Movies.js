@@ -26,7 +26,7 @@ const Movies = () => {
     }
   }, []); */
 
-  async function updateMoviesList(moviesList) {
+  async function updateMoviesList() {
     try {
       let list = {};
       switch (service) {

@@ -10,6 +10,9 @@ import {
   tv_on_the_air,
   tv_popular,
   tv_top_rated,
+  search_movie,
+  search_tv,
+  search_multi,
 } from "./api_config";
 
 const params = {
@@ -98,6 +101,58 @@ export const getTVTop = async () => {
   const url = tv_top_rated;
   try {
     const response = await moviesAxios.get(url, { params });
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// SEARCH
+
+export const searchMovie = async (queryValue) => {
+  const url = search_movie;
+  try {
+    /*  const paramsSearch = {
+      api_key: APP_KEY,
+      query: queryValue,
+    };
+
+    const searchAxios = axios.create({
+      paramsSerializer: (paramsSearch) =>
+        qs.stringify(paramsSearch, { arrayFormat: "repeat" }),
+    }); 
+
+    const response = await searchAxios.get(url, { paramsSearch }); */
+
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const searchMulti = async (queryValue) => {
+  const url = search_multi;
+
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/multi?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const searchTV = async (queryValue) => {
+  const url = search_tv;
+
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/tv?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+    );
     return response;
   } catch (error) {
     throw error;
