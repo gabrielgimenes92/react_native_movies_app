@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator();
 function MoviesScreen(props) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Movies /* movies={props.movies} */ />
+      <Movies />
     </View>
   );
 }

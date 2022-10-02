@@ -14,18 +14,15 @@ const params = {
   page: 1,
 };
 
+const moviesAxios = axios.create({
+  paramsSerializer: (params) => qs.stringify(params, { arrayFormat: "repeat" }),
+});
+
 export const getMoviesNowPlaying = async () => {
   const url = mv_now_playing;
-
   try {
-    const moviesAxios = axios.create({
-      paramsSerializer: (params) =>
-        qs.stringify(params, { arrayFormat: "repeat" }),
-    });
-
     const response = await moviesAxios.get(url, { params });
     return response;
-    /* console.log("RESPONSE", response.data.results[0].original_title); */
   } catch (error) {
     throw error;
   }
@@ -33,15 +30,9 @@ export const getMoviesNowPlaying = async () => {
 
 export const getMoviesPopular = async () => {
   const url = mv_popular;
-
   try {
-    const moviesAxios = axios.create({
-      paramsSerializer: (params) =>
-        qs.stringify(params, { arrayFormat: "repeat" }),
-    });
-
     const response = await moviesAxios.get(url, { params });
-    console.log("RESPONSE", response.data);
+    return response;
   } catch (error) {
     throw error;
   }
@@ -49,15 +40,9 @@ export const getMoviesPopular = async () => {
 
 export const getMoviesTopRated = async () => {
   const url = mv_top_rated;
-
   try {
-    const moviesAxios = axios.create({
-      paramsSerializer: (params) =>
-        qs.stringify(params, { arrayFormat: "repeat" }),
-    });
-
     const response = await moviesAxios.get(url, { params });
-    console.log("RESPONSE", response.data);
+    return response;
   } catch (error) {
     throw error;
   }
@@ -65,15 +50,9 @@ export const getMoviesTopRated = async () => {
 
 export const getMoviesUpcoming = async (movie) => {
   const url = mv_upcoming;
-
   try {
-    const moviesAxios = axios.create({
-      paramsSerializer: (params) =>
-        qs.stringify(params, { arrayFormat: "repeat" }),
-    });
-
     const response = await moviesAxios.get(url, { params });
-    console.log("RESPONSE", response.data);
+    return response;
   } catch (error) {
     throw error;
   }

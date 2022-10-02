@@ -1,4 +1,13 @@
-import { Box, VStack, Divider, Center, Image, Text } from "native-base";
+import {
+  Box,
+  VStack,
+  Divider,
+  Button,
+  Image,
+  Text,
+  HStack,
+  Heading,
+} from "native-base";
 
 const MovieCard = (props) => {
   const { id, image, title, release, popularity } = props;
@@ -6,19 +15,22 @@ const MovieCard = (props) => {
 
   return (
     <Box>
-      <VStack space={4} divider={<Divider />}>
-        <Center>
+      <VStack py={2} divider={<Divider />}>
+        <HStack space={2}>
           <Box>
             <Image
               alt={"label"}
               source={{ uri: basicImageUri + image }}
-              size="2xl"
+              size="xl"
             />
           </Box>
-          <Box px={4} py={4}>
-            <Text>eta</Text>
+          <Box>
+            <Heading size="sm">{title}</Heading>
+            <Text>Popularity: {popularity}</Text>
+            <Text>Release Date: {release}</Text>
+            <Button width="100%">More Details</Button>
           </Box>
-        </Center>
+        </HStack>
       </VStack>
     </Box>
   );
