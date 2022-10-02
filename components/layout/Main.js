@@ -8,10 +8,10 @@ import TV from "./TV";
 
 const Tab = createMaterialTopTabNavigator();
 
-function MoviesScreen() {
+function MoviesScreen(props) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Movies />
+      <Movies /* movies={props.movies} */ />
     </View>
   );
 }
@@ -32,12 +32,18 @@ function TVScreen() {
   );
 }
 
-export default function Main() {
+const Main = (props) => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Movies" component={MoviesScreen} />
+      <Tab.Screen
+        name="Movies"
+        component={MoviesScreen}
+        /* movies={props.movies} */
+      />
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="TV" component={TVScreen} />
     </Tab.Navigator>
   );
-}
+};
+
+export default Main;
