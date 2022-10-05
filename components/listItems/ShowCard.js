@@ -19,6 +19,7 @@ const MovieCard = (props) => {
     if (type == "movie") {
       show = await getMovieById(id);
       console.log("This movie name is: " + show.original_title);
+      /* navigation.navigate("Details"); */
     } else {
       show = await getSerieById(id);
       console.log("This series name is: " + show.original_name);
