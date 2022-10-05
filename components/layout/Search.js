@@ -21,8 +21,16 @@ const Search = () => {
   const [service, setService] = useState("mo");
   const [search, setSearch] = useState("");
   const [moviesList, setMoviesList] = useState([]);
+  const [emptySearch, setEmptySearch] = useState(false);
 
   async function onSubmit() {
+    if (search == "") {
+      setEmptySearch(true);
+      return;
+    }
+
+    setEmptySearch(false);
+
     try {
       let list;
       switch (service) {
@@ -52,7 +60,7 @@ const Search = () => {
     <Container width="90%">
       <Center>
         <Box alignItems="center">
-          <FormControl isRequired>
+          <FormControl isRequired isInvalid={emptySearch}>
             <FormControl.Label pb={1}>
               Search Movie/TV Show Name
             </FormControl.Label>

@@ -158,3 +158,5 @@ export const searchTV = async (queryValue) => {
     throw error;
   }
 };
+
+// GET SINGLE MOVIE
