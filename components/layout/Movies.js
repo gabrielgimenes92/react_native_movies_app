@@ -58,10 +58,8 @@ const Movies = () => {
     }
   }
 
-  /* updateMoviesList(); */
-
   useEffect(() => {
-    console.log(service);
+    updateMoviesList();
   }, [service]);
 
   return (
@@ -87,7 +85,7 @@ const Movies = () => {
           </Select>
         </Box>
         {isLoading ? <Loading /> : <ShowList movies={moviesList} />}
-        <Button onPress={updateMoviesList}>Butt</Button>
+        {/* <Button onPress={updateMoviesList}>Butt</Button> */}
       </Center>
     </Container>
   );

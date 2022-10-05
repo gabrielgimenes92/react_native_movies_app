@@ -50,10 +50,8 @@ const TV = () => {
     }
   }
 
-  /* updateSeriesList(); */
-
   useEffect(() => {
-    console.log(service);
+    updateSeriesList();
   }, [service]);
 
   return (
@@ -79,7 +77,6 @@ const TV = () => {
           </Select>
         </Box>
         {isLoading ? <Loading /> : <ShowList movies={seriesList} />}
-        <Button onPress={updateSeriesList}>Butt</Button>
       </Center>
     </Container>
   );

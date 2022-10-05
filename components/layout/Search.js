@@ -7,6 +7,8 @@ import {
   CheckIcon,
   HStack,
   Button,
+  Container,
+  Center,
 } from "native-base";
 import { Entypo } from "@expo/vector-icons";
 import { useState } from "react";
