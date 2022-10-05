@@ -165,7 +165,7 @@ export const getMovieById = async (id) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
     );
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }
@@ -177,7 +177,7 @@ export const getSerieById = async (id) => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US`
     );
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }

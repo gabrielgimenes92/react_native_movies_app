@@ -16,6 +16,7 @@ const ShowList = (props) => {
             title={item.original_title}
             release={item.release_date}
             popularity={item.popularity}
+            type={"movie"}
           />
         ) : (
           <ShowCard
@@ -24,6 +25,7 @@ const ShowList = (props) => {
             title={item.original_name}
             release={item.first_air_date}
             popularity={item.popularity}
+            type={"tv"}
           />
         )
       }

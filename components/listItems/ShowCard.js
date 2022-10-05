@@ -8,10 +8,22 @@ import {
   HStack,
   Heading,
 } from "native-base";
+import { getMovieById, getSerieById } from "../../services/api";
 
 const MovieCard = (props) => {
-  const { id, image, title, release, popularity } = props;
+  const { id, image, title, release, popularity, type } = props;
   const basicImageUri = "https://image.tmdb.org/t/p/original";
+
+  async function onSubmit() {
+    let show;
+    if (type == "movie") {
+      show = await getMovieById(id);
+      console.log("This movie name is: " + show.original_title);
+    } else {
+      show = await getSerieById(id);
+      console.log("This series name is: " + show.original_name);
+    }
+  }
 
   return (
     <Box>
@@ -28,7 +40,9 @@ const MovieCard = (props) => {
             <Heading size="sm">{title}</Heading>
             <Text>Popularity: {popularity}</Text>
             <Text>Release Date: {release}</Text>
-            <Button width="100%">More Details</Button>
+            <Button width="100%" onPress={onSubmit}>
+              More Details
+            </Button>
           </Box>
         </HStack>
       </VStack>
