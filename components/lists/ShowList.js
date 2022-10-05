@@ -1,5 +1,5 @@
 import { FlatList } from "native-base";
-import MovieCard from "../listItems/MovieCard";
+import ShowCard from "../listItems/ShowCard";
 
 const ShowList = (props) => {
   const { movies } = props;
@@ -10,7 +10,7 @@ const ShowList = (props) => {
       data={movies}
       renderItem={({ item }) =>
         item.original_title ? (
-          <MovieCard
+          <ShowCard
             id={item.id}
             image={item.poster_path}
             title={item.original_title}
@@ -18,7 +18,7 @@ const ShowList = (props) => {
             popularity={item.popularity}
           />
         ) : (
-          <MovieCard
+          <ShowCard
             id={item.id}
             image={item.poster_path}
             title={item.original_name}

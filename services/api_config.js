@@ -1,4 +1,4 @@
-export const APP_KEY = "994cff07f312ce58dbff9414192d8663";
+export const API_KEY = "994cff07f312ce58dbff9414192d8663";
 export const BASE_URL = "https://api.themoviedb.org/3";
 
 export const url_movies = BASE_URL + "/movie/";

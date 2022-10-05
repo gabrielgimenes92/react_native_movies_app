@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 import {
-  APP_KEY,
+  API_KEY,
   mv_now_playing,
   mv_top_rated,
   mv_popular,
@@ -16,7 +16,7 @@ import {
 } from "./api_config";
 
 const params = {
-  api_key: APP_KEY,
+  api_key: API_KEY,
   language: "en-US",
   page: 1,
 };
@@ -113,7 +113,7 @@ export const searchMovie = async (queryValue) => {
   const url = search_movie;
   try {
     /*  const paramsSearch = {
-      api_key: APP_KEY,
+      api_key: API_KEY,
       query: queryValue,
     };
 
@@ -125,7 +125,7 @@ export const searchMovie = async (queryValue) => {
     const response = await searchAxios.get(url, { paramsSearch }); */
 
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
     );
     return response;
   } catch (error) {
@@ -138,7 +138,7 @@ export const searchMulti = async (queryValue) => {
 
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/multi?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
     );
     return response;
   } catch (error) {
@@ -151,7 +151,7 @@ export const searchTV = async (queryValue) => {
 
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/tv?api_key=994cff07f312ce58dbff9414192d8663&language=en-US&query=${queryValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&query=${queryValue}&page=1&include_adult=false`
     );
     return response;
   } catch (error) {
@@ -160,3 +160,25 @@ export const searchTV = async (queryValue) => {
 };
 
 // GET SINGLE MOVIE
+export const getMovieById = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// GET SINGLE TV SERIE
+export const getSerieById = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US`
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
